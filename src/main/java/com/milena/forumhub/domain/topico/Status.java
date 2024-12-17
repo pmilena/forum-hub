@@ -1,4 +1,4 @@
-package com.milena.forumhub.model;
+package com.milena.forumhub.domain.topico;
 
 public enum Status {
     RESPONDIDO,

@@ -1,6 +1,4 @@
-package com.milena.forumhub.model;
-
-import jakarta.validation.constraints.NotBlank;
+package com.milena.forumhub.domain.topico;
 
 public record DadosAtualizarTopicos(String titulo,
                                     String mensagem,

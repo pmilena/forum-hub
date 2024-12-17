@@ -1,10 +1,8 @@
-package com.milena.forumhub.model;
+package com.milena.forumhub.domain.topico;
 
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
-import org.springframework.data.domain.Pageable;
 
 import java.time.LocalDateTime;
 import java.util.Optional;

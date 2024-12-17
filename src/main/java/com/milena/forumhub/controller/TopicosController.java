@@ -1,12 +1,11 @@
 package com.milena.forumhub.controller;
 
 
-import com.milena.forumhub.model.DadosAtualizarTopicos;
-import com.milena.forumhub.model.DadosCadastroTopico;
-import com.milena.forumhub.model.ListaDeTopicos;
-import com.milena.forumhub.model.Topico;
+import com.milena.forumhub.domain.topico.DadosAtualizarTopicos;
+import com.milena.forumhub.domain.topico.DadosCadastroTopico;
+import com.milena.forumhub.domain.topico.ListaDeTopicos;
+import com.milena.forumhub.domain.topico.Topico;
 import com.milena.forumhub.repository.TopicosRepository;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +14,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/topicos")
@@ -36,7 +32,7 @@ public class TopicosController {
     }
 
     @GetMapping
-    public Page<ListaDeTopicos> listar(@PageableDefault(size = 5) Pageable paginacao) {
+    public Page<ListaDeTopicos> listar(@PageableDefault(size = 10) Pageable paginacao) {
         return topicosRepository.findAll(paginacao)
                 .map(topico -> new ListaDeTopicos(topico));
     }
