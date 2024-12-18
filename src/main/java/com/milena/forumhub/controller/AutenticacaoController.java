@@ -1,6 +1,9 @@
 package com.milena.forumhub.controller;
 
+import com.milena.forumhub.config.TokenService;
 import com.milena.forumhub.domain.usuario.DadosAutenticacao;
+import com.milena.forumhub.domain.usuario.Usuario;
+import com.milena.forumhub.infra.DadosTokenJWT;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class AutenticacaoController {
 
     @Autowired
+    private TokenService tokenService;
+
+    @Autowired
     private AuthenticationManager authenticationManager;
 
     @PostMapping
@@ -27,7 +33,15 @@ public class AutenticacaoController {
         // Realiza a autenticação
         Authentication authentication = authenticationManager.authenticate(authenticationToken);
 
-        // Retorna uma resposta de sucesso
-        return ResponseEntity.ok().build();
+        // Gera o token com base no usuário autenticado
+        var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+        return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
+
+
+        //var usuarioAutenticado = (Usuario) authentication.getPrincipal();
+       //String token = tokenService.gerarToken(usuarioAutenticado);
+
+        // Retorna o token em uma resposta de sucesso
+        //return ResponseEntity.ok(token);
     }
 }
