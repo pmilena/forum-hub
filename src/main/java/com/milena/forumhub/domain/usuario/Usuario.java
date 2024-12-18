@@ -51,11 +51,11 @@ public class Usuario implements UserDetails {
 
     @Override
     public String getPassword() {
-        return "senha";
+        return senha;
     }
 
     @Override
     public String getUsername() {
-        return "login";
+        return login;
     }
 }

@@ -32,4 +32,17 @@ public class TokenService {
 private Instant dataExpiracao(){
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-3:00"));
 }
+
+public String getSubject(String tokenJWT){
+    try {
+        Algorithm algorithm = Algorithm.HMAC256(secret);
+        return  JWT.require(algorithm)
+                .withIssuer("API ForumHub")
+                .build()
+                .verify(tokenJWT)
+                .getSubject();
+    } catch (JWTCreationException exception){
+        throw new RuntimeException("Token JWT inválido ou expirado");
+    }
+}
 }
