@@ -35,3 +35,39 @@ A API implementa:
 - **Validações de Regras de Negócio**: Para garantir que os dados fornecidos pelos usuários estão corretos e dentro dos padrões esperados.
 - **Autenticação/Autorização**: Restrição de acesso aos dados com base em permissões do usuário.
 
+******************************************************************************************************************************************************************************************************************************
+
+<h1>Welcome to FórumHub</h1>
+
+## 📖 About the Project
+
+**FórumHub** is an application designed to simulate the functionality of a forum at the back-end level. Forums are spaces where participants can ask questions and receive answers on various topics.  
+
+A **RESTful API** was developed to manage forum topics, enabling **CRUD** operations:  
+- Create new topics.  
+- Retrieve existing topics.  
+- Update topics.  
+- Delete topics.  
+
+The application was built following best development practices, including business rule validation, data persistence in a relational database, and authentication/authorization implementation.  
+
+## 🎯 API Features
+
+1. **Create Topics**: Allows users to create new forum topics.  
+2. **List Topics**: Displays all created topics.  
+3. **Retrieve Specific Topic**: Fetches details of a specific topic.  
+4. **Update Topics**: Edits information of an existing topic.  
+5. **Delete Topics**: Removes topics that are no longer needed.  
+
+## 🛠️ Technologies Used
+
+- **Java** with **Spring Framework**: For implementing the REST API.  
+- **MySQL Database**: For data persistence.  
+- **Authentication and Authorization with Spring Security and JWT**: Ensuring data security and access control.  
+
+## 🛡️ Security and Validations
+
+The API implements:  
+
+- **Business Rule Validations**: Ensuring user-provided data is correct and within expected standards.  
+- **Authentication/Authorization**: Restricting data access based on user permissions.  
